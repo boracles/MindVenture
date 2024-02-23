@@ -391,6 +391,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94597328}
   m_CullTransparentMesh: 1
+--- !u!1 &200660620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200660622}
+  - component: {fileID: 200660621}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &200660621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200660620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0508590119e9b3d4b917f73f1b57b5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePath: DialogueSave.txt
+--- !u!4 &200660622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200660620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,9 +863,9 @@ RectTransform:
   - {fileID: 478243}
   m_Father: {fileID: 974178565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.86961114, y: 0.5}
-  m_AnchorMax: {x: 0.86961114, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 0}
+  m_AnchorMin: {x: 0.8751667, y: 0.5}
+  m_AnchorMax: {x: 0.8751667, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 270.4923, y: 167.1631}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682380786
@@ -866,7 +911,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 682380787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 200660621}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: EndDialogueAndSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &682380787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &794170334
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1365,8 +1422,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1642811781}
   m_HandleRect: {fileID: 1642811780}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9955458
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1444,16 +1501,14 @@ MonoBehaviour:
   chatbotBalloonPrefab: {fileID: 3281453484854496466, guid: 01b30d29833f8bf44a15c38bbb9d2d31,
     type: 3}
   SubmitButton: {fileID: 94597330}
-  NpcDirection: "CBT\uAE30\uBC18 \uC0C1\uB2F4\uC0AC\uB85C\uC11C \uC18C\uD06C\uB77C\uD14C\uC2A4\uC2DD
-    \uBB38\uB2F5\uBC95\uC744 \uC0AC\uC6A9\uD558\uC5EC \uC0C1\uB2F4\uD558\uAE30"
+  NpcDirection: "CBT\uAE30\uBC18 \uC0C1\uB2F4\uC0AC\uB85C\uC11C \uC0C1\uB2F4\uD558\uAE30"
   Facts:
   - "\uB0B4 \uC774\uB984\uC740 '\uB9C8\uC74C\uC194'\uC774\uC57C"
   - "\uB098\uB294 \uAC10\uC815 \uC544\uC9C0\uD2B8\uC5D0 \uC0B4\uACE0 \uC788\uC5B4."
   - "\uC774 \uACF3\uC740 \uB9C8\uC74C\uC744 \uBD80\uB4DC\uB7FD\uAC8C \uC5B4\uB8E8\uB9CC\uC838
     \uC8FC\uB294 \uACF3\uC774\uC57C."
-  - "\uB0B4\uAC00 \uB124\uAC00 \uACAA\uACE0 \uC788\uB294 \uC5B4\uB824\uC6C0\uC774\uB098
-    \uACE0\uBBFC\uB4E4 \uB4E4\uC5B4\uC904\uAC8C."
-  - "\uB108\uC640 \uD568\uAED8 \uB9C8\uC74C\uC744 \uB530\uB73B\uD558\uAC8C \uAC00\uAD74
+  - "\uB108\uC758 \uC774\uC57C\uAE30\uB97C \uB4E4\uC5B4\uC904\uAC8C."
+  - "\uB108\uC640 \uD568\uAED8 \uB9C8\uC74C\uC744 \uB530\uB73B\uD558\uAC8C \uAC00\uAFC0
     \uC218 \uC788\uB294 \uBC29\uBC95\uC744 \uCC3E\uACE0 \uC2F6\uC5B4."
   - "\uD55C \uBC88\uC5D0 3\uC904 \uC774\uD558\uB85C \uC751\uB2F5\uD574\uC918. "
   TrackConversation: 1
@@ -2596,3 +2651,4 @@ SceneRoots:
   - {fileID: 433968366}
   - {fileID: 1827917960}
   - {fileID: 1297909824}
+  - {fileID: 200660622}
