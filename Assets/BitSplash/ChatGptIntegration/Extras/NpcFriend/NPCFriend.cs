@@ -27,6 +27,18 @@ namespace BitSplash.AI.GPT.Extras
         {
             SetUpConversation();
             messagesParent = GameObject.Find("Canvas/Panel/Panel_Chat/Viewport/FrameGroup").transform;
+            
+            // 앱 시작 시 챗봇으로부터 초기 인사 메시지를 보내는 로직
+            SendInitialGreeting();
+        }
+        
+        void SendInitialGreeting()
+        {
+            // 챗봇의 초기 인사 메시지 내용
+            string initialGreeting = "안녕! 나는 '마음솔'이라고해. 만나서 반가워.";
+
+            // 초기 인사 메시지를 대화창에 추가
+            CreateMessageBalloon(initialGreeting, false); // false는 메시지가 챗봇으로부터 왔음을 나타냅니다.
         }
         
         void SetUpConversation()
